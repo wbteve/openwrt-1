@@ -1,7 +1,8 @@
 # openwrt
 openwrt-wifidog编译
 
-	提示：openwrt编译包在编译的过程中会在git中下载文件，编译之后的文件相当的大，所以需要一个大的磁盘编译环境，我用的是VMware虚拟机中安装ubuntu16.04编译openwrt的，在安装虚拟机时，我的100G磁盘空间的ubuntu内存分配方案为：
+	提示：openwrt编译包在编译的过程中会在git中下载文件，编译之后的文件相当的大，所以需要一个大的磁盘编译环境，
+	我用的是VMware虚拟机中安装ubuntu16.04编译openwrt的，在安装虚拟机时，我的100G磁盘空间的ubuntu内存分配方案为：
 			 (1) 根文件目录分配了60G;
 			 (2) home文件目录分配了10G;
 			 (3) swp目录分配了20G;
@@ -10,6 +11,7 @@ openwrt-wifidog编译
 
 1，下载环境
 	(1) 下载环境
+
 	sudo apt-get install gcc g++ binutils patch bzip2 flex bison make autoconf gettext texinfo unzip sharutils subversion libncurses5-dev ncurses-term zlib1g-dev gawk asciidoc libz-dev git libssl-dev
 	 
 	(2) 更新程序
@@ -37,12 +39,16 @@ openwrt-wifidog编译
 		make
 		然后退出到之前的目录，make V=99就行了。
 
-2，openwrt中wifidog的编译包为
+2，openwrt中wifidog的编译包为：
+
      wifidog-gateway-master.tar
+
 wifidog-gateway-master放置的位置为：
+
      cd /openwrt-x86/openwrt-master/build_dir/target-x86_64_musl-1.1.15/wifidog-normal/wifidog-1.3.0
 
-3，openwrt的源码包路径
+3，openwrt的源码包路径：
+
 	src/gz puppies_base http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/base
 	src/gz puppies_kernel http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/kernel
 	src/gz puppies_telephony http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/telephony
@@ -54,10 +60,12 @@ wifidog-gateway-master放置的位置为：
 	src/gz puppies_luci http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/luci
 	src/gz puppies_management http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/management
 	# src/gz puppies_targets http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/targets
-	src/gz attitude_adjustment http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/Packages.gz
 
 
-只有下面这一个路径上才能下载到lrzsz.ipk（使用sz和rz命令的源码包）
+
+我只在下面这一个源上下载到过lrzsz.ipk（使用sz和rz命令的源码包）：
+src/gz attitude_adjustment http://downloads.openwrt.org/attitude_adjustment/12.09/x86/generic/packages/Packages.gz
 --------------------
+还可以使用wget自己下载
 wget http://downloads.openwrt.org/snapshots/trunk/x86/64/packages/packages/lrzsz_0.12.20-1_x86_64.ipk
 
